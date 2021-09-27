@@ -1,2 +1,2 @@
-# CP_PI
-Course project 
+# Pydate
+Project for dating and communication 
