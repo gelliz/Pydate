@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Information</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+        <link rel="stylesheet" href="{% static "css_pages/personal_questionnaire.css" %}"/>
+        <link rel="stylesheet" href="{% static "css_pages/view_answers.css" %}"/>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center  mw-100">
+        <h1 id="pydateintro" class="col-11 col-lg-8 text-center align-self-center">
+            How does it work?
+        </h1>
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <div id="app_description" class="text-justify align-self-center">
+                <p id="app_description_text">Create an account. Fill the questionnaire about yourself. Add some questions.
+                    View other people's profiles. If you like them, drag
+                    their photo towards the heart or towards the trash can. After matching, you should answer the
+                    personal questions. You will be able to chat only when you like your partner's photo and
+                    like your partner's answers for your questions. Be carefull! The chat is not holding the history,
+                    so we suggest you to chat only when the second person is online.
+
+                </p>
+                <p id="app_description_text" style="text-align: center">&hearts; good luck & have fun!&hearts;</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+</body>
+</html>

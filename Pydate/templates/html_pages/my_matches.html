@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+{% load list_item %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>My matches</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+        <link rel="stylesheet" href="{% static "css_pages/my_matches.css" %}"/>
+        <style>
+        </style>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            {% if display_no_matches_info %}
+                <h id="no_matches">
+                    You have no matches yet, go to the <a href="/">home page</a> and search for people! &hearts;
+                </h>
+            {% else %}
+                {% for match in matches_data %}
+                    <div class="mw-100">
+                        <!--<img src="{{ match.photo.url }}">-->
+                        <img id="profile_picture" src="{{ media_url }}{{ match.photo }}" class="d-inline-block">
+                        <p id="description" class="d-inline-block">
+                            DESCRIPTION: {{ match.description }}
+                        </p>
+                        <h id="username" class="d-block">
+                            USERNAME: <span style="font-weight: bold">{{ match.username }}</span>
+                        </h>
+                        <a href='{% url 'personal_questionnaire' match.username %}' type="button"
+                           id="submit_questionnaire" class="text-decoration-none d-flex w-25 mx-auto">
+                            <div id="answer_button">
+                                Answer my questions!
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </main>
+{% endblock %}
+
+</body>
+</html>
